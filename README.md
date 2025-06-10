@@ -19,10 +19,10 @@ A responsive, filterable, and interactive image gallery built using **HTML**, **
 
 ## 🧩 Project Structure
 
-├── index.html # Main HTML structure
-├── styles.css # Styling, layout, and responsiveness
-├── script.js # Logic for dynamic rendering and interaction
-└── README.md # Project overview and documentation
+├── index.html # Main HTML structure <br>
+├── styles.css # Styling, layout, and responsiveness <br>
+├── script.js # Logic for dynamic rendering and interaction <br>
+└── README.md # Project overview and documentation <br>
 
 ---
 
