@@ -109,6 +109,168 @@ const images = [
     photographer: 'Pixabay',
     width: 800,
     height: 600
+  },
+  {
+    id: '13',
+    src: 'https://images.pexels.com/photos/3251851/pexels-photo-3251851.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Snow-covered mountains under blue sky',
+    category: 'Nature',
+    photographer: 'Tatiana Syrikova',
+    width: 800,
+    height: 600
+  },
+  {
+    id: '14',
+    src: 'https://images.pexels.com/photos/2090651/pexels-photo-2090651.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Skyscraper with mirror reflection',
+    category: 'Architecture',
+    photographer: 'Alex Powell',
+    width: 800,
+    height: 1200
+  },
+  {
+    id: '15',
+    src: 'https://images.pexels.com/photos/3748221/pexels-photo-3748221.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Smiling man outdoors',
+    category: 'People',
+    photographer: 'Ketut Subiyanto',
+    width: 800,
+    height: 800
+  },
+  {
+    id: '16',
+    src: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Circuit board close-up',
+    category: 'Technology',
+    photographer: 'ThisIsEngineering',
+    width: 800,
+    height: 533
+  },
+  {
+    id: '17',
+    src: 'https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Abstract geometric background with pink and blue',
+    category: 'Abstract',
+    photographer: 'Scott Webb',
+    width: 800,
+    height: 800
+  },
+  {
+    id: '18',
+    src: 'https://images.pexels.com/photos/158607/cairn-fog-mystical-background-158607.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Stacked stones in misty forest',
+    category: 'Nature',
+    photographer: 'Pixabay',
+    width: 800,
+    height: 600
+  },
+  {
+    id: '19',
+    src: 'https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Old cathedral at sunset',
+    category: 'Architecture',
+    photographer: 'Pixabay',
+    width: 800,
+    height: 600
+  },
+  {
+    id: '20',
+    src: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Friends taking a selfie at a cafe',
+    category: 'People',
+    photographer: 'Helena Lopes',
+    width: 800,
+    height: 533
+  },
+  {
+    id: '21',
+    src: 'https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Sunset over the ocean',
+    category: 'Nature',
+    photographer: 'Pixabay',
+    width: 800,
+    height: 533
+  },
+  {
+    id: '22',
+    src: 'https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Glass office building with reflections',
+    category: 'Architecture',
+    photographer: 'Expect Best',
+    width: 800,
+    height: 1200
+  },
+  {
+    id: '23',
+    src: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Young woman smiling in urban street',
+    category: 'People',
+    photographer: 'Luis Quintero',
+    width: 800,
+    height: 1000
+  },
+  {
+    id: '24',
+    src: 'https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Futuristic tech with neon lighting',
+    category: 'Technology',
+    photographer: 'ThisIsEngineering',
+    width: 800,
+    height: 600
+  },
+  {
+    id: '25',
+    src: 'https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Abstract lines in vibrant colors',
+    category: 'Abstract',
+    photographer: 'Pixabay',
+    width: 800,
+    height: 800
+  },
+  {
+    id: '26',
+    src: 'https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'River running through forest',
+    category: 'Nature',
+    photographer: 'Harrison Haines',
+    width: 800,
+    height: 533
+  },
+  {
+    id: '27',
+    src: 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'White minimalist building',
+    category: 'Architecture',
+    photographer: 'Pixabay',
+    width: 800,
+    height: 800
+  },
+  {
+    id: '28',
+    src: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Child playing in autumn leaves',
+    category: 'People',
+    photographer: 'Misael Garcia',
+    width: 800,
+    height: 533
+  },
+  {
+    id: '29',
+    src: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Close-up of circuit chips',
+    category: 'Technology',
+    photographer: 'Pixabay',
+    width: 800,
+    height: 533
+  },
+  {
+    id: '30',
+    src: 'https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Spiral pattern abstract art',
+    category: 'Abstract',
+    photographer: 'Miguel Á. Padriñán',
+    width: 800,
+    height: 800
   }
 ];
 
