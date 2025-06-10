@@ -112,7 +112,6 @@ const images = [
   }
 ];
 
-// Helper to create image card
 function createImageCard(image, index) {
   const aspectRatio = (image.width && image.height) ? `${image.width}/${image.height}` : '4/3';
   const card = document.createElement('div');
@@ -149,13 +148,11 @@ function createImageCard(image, index) {
   card.appendChild(contentOverlay);
   card.appendChild(categoryTag);
 
-  // Lightbox trigger
   card.addEventListener('click', () => openLightbox(index));
 
   return card;
 }
 
-// Render images
 function imageLoader(category = 'All') {
   imagesContainer.innerHTML = '';
   images.forEach((image, idx) => {
@@ -165,31 +162,26 @@ function imageLoader(category = 'All') {
   });
 }
 
-// Lightbox logic
 let lightboxElements = null;
 function openLightbox(index) {
-  closeLightbox(); // Remove any existing
+  closeLightbox();
 
-  // Backdrop
   const backdrop = document.createElement('div');
   backdrop.className = 'lightbox-backdrop';
   backdrop.addEventListener('click', closeLightbox);
 
-  // Content
   const content = document.createElement('div');
   content.className = 'lightbox-content';
 
   const inner = document.createElement('div');
   inner.className = 'lightbox-inner';
 
-  // Close button
   const closeBtn = document.createElement('button');
   closeBtn.className = 'lightbox-close';
   closeBtn.setAttribute('aria-label', 'Close');
   closeBtn.innerHTML = '×';
   closeBtn.addEventListener('click', closeLightbox);
 
-  // Prev button
   const prevBtn = document.createElement('button');
   prevBtn.className = 'lightbox-prev';
   prevBtn.setAttribute('aria-label', 'Previous');
@@ -199,7 +191,6 @@ function openLightbox(index) {
     showLightboxImage(index - 1);
   });
 
-  // Next button
   const nextBtn = document.createElement('button');
   nextBtn.className = 'lightbox-next';
   nextBtn.setAttribute('aria-label', 'Next');
@@ -209,21 +200,17 @@ function openLightbox(index) {
     showLightboxImage(index + 1);
   });
 
-  // Image
   const img = document.createElement('img');
   img.className = 'lightbox-img';
 
-  // Info
   const info = document.createElement('div');
   info.className = 'lightbox-info';
 
-  // Download button
   const downloadBtn = document.createElement('button');
   downloadBtn.className = 'lightbox-download';
   downloadBtn.setAttribute('aria-label', 'Download');
   downloadBtn.innerHTML = '↓';
 
-  // Keyboard navigation
   function onKey(e) {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') showLightboxImage(index - 1);
@@ -231,13 +218,11 @@ function openLightbox(index) {
   }
   document.addEventListener('keydown', onKey);
 
-  // Download logic
   downloadBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    window.open(images[index].src, '_blank'); // Open image in new tab
+    window.open(images[index].src, '_blank'); 
   });
 
-  // Helper to update image/info
   function showLightboxImage(idx) {
     if (idx < 0) idx = images.length - 1;
     if (idx >= images.length) idx = 0;
@@ -272,7 +257,6 @@ function openLightbox(index) {
   showLightboxImage(index);
 }
 
-// Remove lightbox
 function closeLightbox() {
   if (lightboxElements) {
     document.body.removeChild(lightboxElements.backdrop);
@@ -282,7 +266,6 @@ function closeLightbox() {
   }
 }
 
-// Filter buttons
 filterButtons.forEach(element => {
   element.addEventListener('click', () => {
     const category = element.getAttribute('data-filter');
