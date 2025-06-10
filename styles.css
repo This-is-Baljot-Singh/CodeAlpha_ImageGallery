@@ -1,0 +1,407 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #fff 60%, #f1f5f9 100%);
+}
+
+.header-container {
+    text-align: center;
+    padding: 3rem 1rem 2rem 1rem;
+}
+
+.image-card {
+    width: 100%;
+}
+
+/* Add spacing on mobile */
+@media (max-width: 480px) {
+    .filterBar {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .lightbox-inner {
+        flex-direction: column;
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .lightbox-img {
+        max-height: 60vh;
+    }
+
+    .lightbox-info {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next,
+    .lightbox-download {
+        padding: 0.5rem;
+    }
+}
+
+/* Download button visibility */
+.lightbox-download {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: bold;
+    bottom: 1rem; /* Adjusted to match sample */
+    right: 1rem; /* Adjusted to match sample */
+}
+
+.lightbox-download .download-text {
+    font-size: 1rem;
+}
+
+.header-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fade-in 0.7s 0.1s forwards;
+}
+
+.header-text {
+    font-size: 1.125rem;
+    color: #64748b;
+    max-width: 50rem;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fade-in 0.7s 0.5s forwards;
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
+
+.filterBar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filterBar-option {
+    position: relative;
+}
+
+.filterBar-option input[type="radio"] {
+    display: none;
+}
+
+.filter-button {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px 0 #0001;
+}
+
+.filterBar-option input[type="radio"]:checked + .filter-button {
+    background: linear-gradient(90deg, #6366f1 0%, #0ea5e9 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px 0 #6366f133;
+}
+
+.images-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem 3rem 1rem;
+    column-count: 1;
+    column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .images-container { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+    .images-container { column-count: 3; }
+}
+
+@media (min-width: 1280px) {
+    .images-container { column-count: 4; }
+}
+
+.image-card {
+    break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #e2e8f0;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: transform 0.5s, box-shadow 0.5s;
+    animation: fade-in 0.7s;
+}
+
+.image-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px 0 #0f172a33;
+}
+
+.image-card .loading-skeleton {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%);
+    animation: pulse 1.5s infinite;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.image-card .error-state {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    z-index: 2;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.7s, transform 0.7s;
+    opacity: 0;
+    display: block;
+}
+
+.image-card.loaded img {
+    opacity: 1;
+}
+
+.image-card:hover img {
+    transform: scale(1.10);
+}
+
+.image-card .overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #000a 60%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+.image-card:hover .overlay-gradient {
+    opacity: 1;
+}
+
+.image-card .content-overlay {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 1rem;
+    color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    z-index: 4;
+    font-size: 0.95rem;
+}
+
+.image-card:hover .content-overlay {
+    transform: translateY(0);
+}
+
+.image-card .category-tag {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #334155;
+    transform: translateX(100%);
+    transition: transform 0.3s 0.1s;
+    z-index: 5;
+}
+
+.image-card:hover .category-tag {
+    transform: translateX(0);
+}
+
+.lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    animation: fade-in 0.3s;
+}
+
+.lightbox-content {
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.lightbox-inner {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 26, 26, 0.7);
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.lightbox-img {
+    max-width: 50%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+}
+
+.lightbox-info {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    padding: 2rem;
+    color: #fff;
+    border-radius: 0 0.75rem 0.75rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lightbox-close, .lightbox-prev, .lightbox-next, .lightbox-download {
+    position: absolute;
+    z-index: 102;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+    border: none;
+    border-radius: 9999px;
+    color: #fff;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.lightbox-close {
+    top: 1rem;
+    right: 1rem;
+}
+
+.lightbox-prev {
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:not([disabled]):hover,
+.lightbox-next:not([disabled]):hover,
+.lightbox-download:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.lightbox-close:focus,
+.lightbox-prev:focus,
+.lightbox-next:focus,
+.lightbox-download:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.lightbox-prev[disabled],
+.lightbox-next[disabled] {
+    background: rgba(255,255,255,0.05);
+    color: #fff5;
+    cursor: not-allowed;
+}
+
+.lightbox-info .meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.lightbox-info .meta .icon {
+    vertical-align: middle;
+}
+
+.lightbox-info .count {
+    font-size: 0.95rem;
+    opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+    .lightbox-inner {
+        flex-direction: column;
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .lightbox-img {
+        max-width: 100%;
+        max-height: 50vh;
+        border-radius: 0.75rem 0.75rem 0 0;
+    }
+
+    .lightbox-info {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0 0 0.75rem 0.75rem;
+    }
+
+    .meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@keyframes scale-in {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
